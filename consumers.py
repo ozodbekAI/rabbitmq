@@ -9,6 +9,8 @@ connection_params = ConnectionParameters(
 def procces_message(ch, method, properties, body):
     print(f"Received message: {body.decode()}")
 
+    # auto_ask ni o'rniga ishlatiladi chunki uni ishlatiladigan bo'lsa procces messageda  xato chiqib qolsa kelgan messagelar o'chib ketib qoladi
+    
     ch.basic_ack(delivery_tag=method.delivery_tag)
     
 def main():
